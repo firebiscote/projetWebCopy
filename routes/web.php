@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{LocalityController, OfferController};
+use App\Http\Controllers\{LocalityController, OfferController, StudentController};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +25,7 @@ Route::resource('offers', OfferController::class);
 Route::delete('offers/force/{id}', [OfferController::class, 'forceDestroy'])->name('offers.force.destroy');
 Route::put('offers/restore/{id}', [OfferController::class, 'restore'])->name('offers.restore');
 Route::get('locality/{slug}/offers', [OfferController::class, 'index'])->name('offers.locality');
+Route::resource('students', StudentController::class);
+Route::get('center/{slug}/students', [StudentController::class, 'index'])->name('students.center');
+Route::get('promotion/{slug}/students', [StudentController::class, 'index'])->name('students.promotion');
+Route::get('search/students', [StudentController::class, 'search'])->name('students.search');

@@ -1,0 +1,24 @@
+
+#logo {
+	width: 350px;
+	height: 100px;
+}
+
+#identification
+{
+    text-align:right;
+    color:black;
+}
+
+#titrePage
+{
+    text-align: center;
+    color:black;
+}
+
+
+
+#connexion
+{
+    margin-top: 20px;
+}

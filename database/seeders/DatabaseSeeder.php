@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\{Locality, Offer, Promotion, Center, User, Company, Rating, Right, Skill};
+use Database\Factories\StudentFactory;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -59,13 +60,11 @@ class DatabaseSeeder extends Seeder
 
         Skill::factory(30)->create();
 
-        Center::factory(10)->create();
-
         Right::factory(20)->create();
 
-        User::factory()->count(30)->create()->each(function ($user) use ($ids) {
+        User::factory()->count(200)->create()->each(function ($user) use ($ids) {
             shuffle($ids);
-            $user->promotions()->attach(array_slice($ids, 0, rand(1,4)));
+            $user->promotions()->attach(array_slice($ids, 0, 1));
         });
 
         Offer::factory()->count(40)->create()->each(function ($offer) use ($ids) {
